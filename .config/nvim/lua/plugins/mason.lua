@@ -1,0 +1,3 @@
+return { -- Package manager, LSP, Linters, formatters, etc...
+  'williamboman/mason.nvim',
+}
