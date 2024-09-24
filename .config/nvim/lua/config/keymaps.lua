@@ -1,14 +1,21 @@
 -- [[ Basic Keymaps ]]
 
+-- Leave insert mode with double j
+vim.keymap.set('i', 'jj', '<Esc>')
+
 -- Opens Explorer
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('i', 'jj', '<Esc>')
+
+-- Saves the chages made to the file
+vim.keymap.set('n', '<C-s>', vim.cmd.w, { desc = '[S]aves the changes made in the file' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>qn', vim.diagnostic.get_next, { desc = '[Q]uickfix [N]ext Item' })
+vim.keymap.set('n', '<leader>qp', vim.diagnostic.get_next, { desc = '[Q]uickfix [P]revious Item' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
