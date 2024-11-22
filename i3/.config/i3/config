@@ -14,7 +14,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 # wallpaper setter
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/deathScreen.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/pixelShinyFurret.png
 
 # xorg compositor
 exec_always --no-startup-id picom
@@ -22,11 +22,13 @@ exec_always --no-startup-id picom
 # start rofi (program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun
 
+# Screenshot
+bindsym Print exec flameshot gui
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-bindsym $mod+ctrl+l exec --no-startup-id i3lock -Fi ~/Pictures/Wallpapers/beRightBack.jpg
-
+bindsym $mod+ctrl+l exec --no-startup-id i3lock -Fi ~/Pictures/Wallpapers/deathScreen.jpg
 
 # networkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -45,8 +47,8 @@ floating_modifier $mod
 # move floating window by left-clicking anywhere into the
 # window while holding the floating modifier.
 tiling_drag modifier titlebar
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 3
+default_floating_border pixel 3
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -162,7 +164,7 @@ bindsym $mod+r mode "resize"
 # Theme for i3
 # Class                 border  backgr. text    indicator child_border
 client.focused          #EE6D85 #EE6D85 #ffffff #EE6D85   #EE6D85
-client.focused_inactive #D7A65F #D7A65F #ffffff #D7A65F   #D7A65F
+client.focused_inactive #A485DD #A485DD #ffffff #A485DD   #A485DD
 client.unfocused        #7199EE #7199EE #888888 #7199EE   #7199EE
 client.urgent           #EE6D85 #EE6D85 #ffffff #EE6D85   #EE6D85
 client.placeholder      #87C38A #87C38A #ffffff #87C38A   #87C38A
