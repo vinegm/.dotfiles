@@ -37,7 +37,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git yarn npm python pip)
 
 source $ZSH/oh-my-zsh.sh
 
