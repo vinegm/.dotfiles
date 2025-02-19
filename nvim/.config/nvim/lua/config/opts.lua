@@ -12,26 +12,26 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 -- Standard clipboard (use this for linux/mac)
---vim.schedule(function()
---  vim.opt.clipboard = 'unnamedplus'
---end)
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
 
 -- Standard clipboard (use this for Windows)
-local clip = '/mnt/c/Windows/System32/clip.exe'
-local function copy_to_clipboard()
-  local reg_contents = vim.fn.getreg '"'
-  vim.fn.system(clip, reg_contents)
-end
-vim.api.nvim_create_augroup('WSLYank', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = 'WSLYank',
-  pattern = '*',
-  callback = function()
-    if vim.v.event.operator == 'y' then
-      copy_to_clipboard()
-    end
-  end,
-})
+-- local clip = '/mnt/c/Windows/System32/clip.exe'
+-- local function copy_to_clipboard()
+--  local reg_contents = vim.fn.getreg '"'
+--  vim.fn.system(clip, reg_contents)
+-- end
+-- vim.api.nvim_create_augroup('WSLYank', { clear = true })
+-- vim.api.nvim_create_autocmd('TextYankPost', {
+--   group = 'WSLYank',
+--   pattern = '*',
+--   callback = function()
+--     if vim.v.event.operator == 'y' then
+--       copy_to_clipboard()
+--     end
+--   end,
+-- })
 
 -- Enable break indent
 vim.opt.breakindent = true
