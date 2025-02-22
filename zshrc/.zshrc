@@ -1,8 +1,8 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Path to my custom stuff
-ZSH_CUSTOM="$HOME/.dotfiles/ZSH_CUSTOM"
+# Path to custom stuff
+ZSH_CUSTOM="$HOME/.zshccustom"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -48,3 +48,10 @@ else
   export EDITOR='nvim'
 fi
 
+eval "$(zoxide init zsh)"
+source <(fzf --zsh)
+
+# Aliases
+alias cd='z'
+alias vi='nvim'
+alias vim='nvim'

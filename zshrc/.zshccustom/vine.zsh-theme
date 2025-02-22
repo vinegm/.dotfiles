@@ -1,5 +1,3 @@
-# vinegm's Theme
-
 autoload -Uz vcs_info
 zstyle ':vcs_info:git*' formats ' %F{011}[%b]%f'
 precmd() { vcs_info }
