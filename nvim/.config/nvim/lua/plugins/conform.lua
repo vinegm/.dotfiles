@@ -25,8 +25,16 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { 'prettierd', 'prettier' },
+      typescript = { 'prettierd', 'prettier' },
+    },
+    formatters = {
+      prettier = {
+        prepend_args = { '--config', vim.fn.getcwd() .. '/.prettierrc' },
+      },
+      prettierd = {
+        prepend_args = { '--config', vim.fn.getcwd() .. '/.prettierrc' },
+      },
     },
   },
 }
