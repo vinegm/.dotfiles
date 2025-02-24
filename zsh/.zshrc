@@ -2,7 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Path to custom stuff
-ZSH_CUSTOM="$HOME/.zshccustom"
+ZSH_CUSTOM="$HOME/.zshcustom"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -55,3 +55,4 @@ source <(fzf --zsh)
 alias cd='z'
 alias vi='nvim'
 alias vim='nvim'
+alias lgit='lazygit'
