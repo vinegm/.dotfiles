@@ -6,6 +6,9 @@ vim.keymap.set('i', 'jj', '<Esc>')
 -- Opens Explorer
 vim.keymap.set('n', '<leader>ex', vim.cmd.Ex, { desc = '[Ex]plore' })
 
+-- Opens LazyNvim
+vim.keymap.set('n', '<leader>ln', vim.cmd.Lazy, { desc = '[L]azy[N]vim' })
+
 -- Clear highlights
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 

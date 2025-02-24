@@ -11,6 +11,6 @@ return { -- Terminal git interface
     'nvim-lua/plenary.nvim',
   },
   keys = {
-    { '<leader>lg', '<cmd>LazyGit<CR>', desc = 'LazyGit' },
+    { '<leader>lg', '<cmd>LazyGit<CR>', desc = '[L]azy[G]it' },
   },
 }
