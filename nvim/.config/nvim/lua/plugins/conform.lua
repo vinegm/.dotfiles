@@ -27,6 +27,7 @@ return { -- Autoformat
       lua = { 'stylua' },
       javascript = { 'prettierd', 'prettier' },
       typescript = { 'prettierd', 'prettier' },
+      javascriptreact = { 'prettierd', 'prettier' },
     },
     formatters = {
       prettier = {

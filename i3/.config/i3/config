@@ -30,9 +30,16 @@ bindsym Print exec flameshot gui
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 bindsym $mod+ctrl+l exec --no-startup-id i3lock -Fi ~/.config/i3/wallpapers/deathScreen.jpg
 
-# Binds for skipping songs
-bindsym $mod+Mod1+Right exec playerctl next
-bindsym $mod+Mod1+Left exec playerctl previous
+# Binds for media players
+bindsym $mod+Mod1+Left exec playerctl --player=spotify previous
+bindsym $mod+Mod1+Right exec playerctl --player=spotify next
+bindsym $mod+Mod1+Down exec playerctl --player=spotify volume 0.1-
+bindsym $mod+Mod1+Up exec playerctl --player=spotify volume 0.1+
+# media player with vim motions :O
+bindsym $mod+Mod1+h exec playerctl --player=spotify previous
+bindsym $mod+Mod1+l exec playerctl --player=spotify next
+bindsym $mod+Mod1+j exec playerctl --player=spotify volume 0.1-
+bindsym $mod+Mod1+k exec playerctl --player=spotify volume 0.1+
 
 # networkManager system tray GUI
 exec --no-startup-id nm-applet
