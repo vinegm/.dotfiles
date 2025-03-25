@@ -9,6 +9,9 @@ vim.keymap.set('n', '<leader>ex', vim.cmd.Ex, { desc = '[Ex]plore' })
 -- Opens LazyNvim
 vim.keymap.set('n', '<leader>ln', vim.cmd.Lazy, { desc = '[L]azy[N]vim' })
 
+-- Open Mason
+vim.keymap.set('n', '<leader>m', vim.cmd.Mason, { desc = '[M]ason' })
+
 -- Clear highlights
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
