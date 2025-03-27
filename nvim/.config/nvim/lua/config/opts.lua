@@ -6,16 +6,14 @@ vim.opt.number = true
 -- Relative line numbers
 vim.opt.relativenumber = true
 
+-- Line numbers etc in Netrw
+vim.cmd [[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']]
+
 -- Enable mouse mode (blasphemous, I know)
 vim.opt.mouse = 'a'
 
 -- Don't show the mode (already in the status line)
 vim.opt.showmode = false
-
--- Standard clipboard (use this for linux/mac)
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
 
 -- Standard clipboard (use this for Windows/WSL)
 -- local clip = '/mnt/c/Windows/System32/clip.exe'

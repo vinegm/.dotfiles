@@ -1,0 +1,14 @@
+[user]
+	email = 117782568+vinegm@users.noreply.github.com
+	name = vine
+[core]
+	pager = delta
+
+[delta]
+	navigate = true
+	dark = true
+	line-numbers = true
+	syntax-theme = tokyonight_night
+
+[merge]
+	conflictstyle = zdiff3

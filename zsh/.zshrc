@@ -42,6 +42,7 @@ source <(fzf --zsh)
 
 # Aliases
 alias cd='z'
+alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias lgit='lazygit'
