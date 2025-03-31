@@ -20,13 +20,13 @@ return { -- shows open buffers at the top
           local icon = level:match 'error' and ' ' or ' '
           return ' ' .. icon .. count
         end,
+        custom_filter = function(buf_number, _)
+          -- Hide terminal buffers from appearing in bufferline
+          if vim.bo[buf_number].buftype ~= 'terminal' then
+            return true
+          end
+        end,
       },
-      custom_filter = function(buf_number, _)
-        -- Hide terminal buffers from appearing in bufferline
-        if vim.bo[buf_number].buftype ~= 'terminal' then
-          return true
-        end
-      end,
     }
 
     vim.keymap.set('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>', { silent = true, desc = 'Jump to buffer [1]' })
