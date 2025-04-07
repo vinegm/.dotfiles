@@ -12,7 +12,7 @@ return {
 ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
  ]],
         keys = {
-          { icon = ' ', key = 's', desc = 'Restore Session', section = 'session' },
+          { icon = ' ', key = 'r', desc = 'Restore Session', section = 'session' },
           { icon = '󰒲 ', key = 'l', desc = 'Lazy', action = ':Lazy' },
           { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
         },
