@@ -58,8 +58,8 @@ floating_modifier $mod
 # move floating window by left-clicking anywhere into the
 # window while holding the floating modifier.
 tiling_drag modifier titlebar
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 1
+default_floating_border pixel 1
 
 # start a terminal
 bindsym $mod+Return exec kitty
