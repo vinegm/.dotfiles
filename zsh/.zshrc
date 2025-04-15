@@ -24,8 +24,30 @@ ENABLE_CORRECTION="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Standard plugins can be found in $ZSH/plugins/
-plugins=(git yarn npm python pip)
+# Bootstrap zsh auto suggestions
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+  git clone --quiet https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+fi
+
+# Bootstrap zsh syntax highlight
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+  git clone --quiet https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+fi
+
+# Plugins :D
+plugins=(
+  git
+  git-extras
+  yarn
+  npm
+  python
+  pip
+  docker
+  colored-man-pages
+  command-not-found
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
