@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# This allows you to pull all repos
-# Allows passing of a ssh key as the
-# first arg to not ask password on
-# every pull.
+# This allows you to pull all repos within
+# a directory and subdirectories. Allows
+# passing of a ssh key as the first arg
+# to not ask password on every pull.
 # **Not made with monorepos in mind.**
 
 if [ $1 ]; then

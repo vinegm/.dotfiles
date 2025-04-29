@@ -4,9 +4,8 @@
 # in the dotfiles for easier setup.
 
 DOTFILES_DIR="$(pwd)"
-IGNORE_LIST=(".git" "stow_ignore/")
+IGNORE_LIST=(".git" "stow_ignore/" "manifest.json")
 
-# Get all directories, excluding ignored ones
 dirs=$(ls -d */)
 
 for ignore in "${IGNORE_LIST[@]}"; do
@@ -21,7 +20,7 @@ stow_action() {
     local dir=$2
 
     case "$action" in
-        stow) stow -D "$dir" && stow "$dir" ;;
+        stow) stow -R "$dir" ;;
         unstow) stow -D "$dir" ;;
         *)
             echo "Action not recognized"

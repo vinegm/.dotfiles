@@ -1,0 +1,87 @@
+[
+  {
+    "name": "i3-wm",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": null
+    }
+  },
+  {
+    "name": "polybar",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "rofi",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "kitty",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "zsh",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "nvim",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": null
+    }
+  },
+  {
+    "name": "git",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "ripgrep",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "bat",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "tmux",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "flameshot",
+    "sources": {
+      "arch": "pacman",
+      "ubuntu": "apt"
+    }
+  },
+  {
+    "name": "brave-bin",
+    "sources": {
+      "arch": "yay",
+      "ubuntu": null
+    }
+  }
+]
+
