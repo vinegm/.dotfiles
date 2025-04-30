@@ -15,19 +15,13 @@ if [[ ! " ${SUPPORTED_OS[@]} " =~ " ${ID} " ]]; then
   exit 1
 fi
 
-if [[ "$ID" == "arch" && ! $(command -v yay) ]]; then
-  echo "yay is not installed. Please install yay before continuing."
-  exit 1
-fi
-
-OS=$ID
-echo "Detected OS: '$OS'"
+echo "Detected OS: '$ID'"
 
 # Install basic tools
 install_tools() {
   if ! command -v jq &> /dev/null; then
     echo "Installing jq..."
-    if [ "$OS" = "arch" ]; then
+    if [ "$ID" = "arch" ]; then
       sudo pacman -S --noconfirm jq
     else
       sudo apt update
@@ -37,7 +31,7 @@ install_tools() {
 
   if ! command -v stow &> /dev/null; then
     echo "Installing stow..."
-    if [ "$OS" = "arch" ]; then
+    if [ "$ID" = "arch" ]; then
       sudo pacman -S --noconfirm stow
     else
       sudo apt install -y stow
@@ -55,7 +49,7 @@ install_packages() {
 
   for pkg in $packages; do
     name=$(echo $pkg | jq -r '.name')
-    source=$(echo $pkg | jq -r ".sources.${OS}")
+    source=$(echo $pkg | jq -r ".sources.${ID}")
 
     if [ "$source" != "null" ]; then
       case "$source" in
@@ -72,22 +66,20 @@ install_packages() {
     fi
   done
 
-  if [ "$OS" = "arch" ]; then
-    echo "Installing pacman packages: ${aur_pkgs[*]}"
-    sudo pacman -S --needed --noconfirm "${pacman_pkgs[@]}"
-
-    if [ ! ${#aur_pkgs[@]} -gt 0 ]; then
+  if [ "$ID" = "arch" ]; then
+    if [ ! $(command -v yay) ]; then
+      echo "Installing only pacman packages (no yay):"
+      sudo pacman -S --noconfirm "${pacman_pkgs[@]}"
       return
     fi
 
-    echo "Installing AUR packages: ${aur_pkgs[*]}"
-    for pkg in "${aur_pkgs[@]}"; do
-      yay -S --needed --noconfirm "$pkg"
-    done
+    aur_pkgs+=("${pacman_pkgs[@]}")
+    echo "Installing packages: ${aur_pkgs[*]}"
+    yay -S --needed --noconfirm "${aur_pkgs[@]}"
   fi
 
-  if [ "$OS" = "ubuntu" ] && [ ${#apt_pkgs[@]} -gt 0 ]; then
-    echo "Installing apt packages: ${apt_pkgs[*]}"
+  if [ "$ID" = "ubuntu" ]; then
+    echo "Installing packages: ${apt_pkgs[*]}"
     sudo apt install -y "${apt_pkgs[@]}"
   fi
 }
