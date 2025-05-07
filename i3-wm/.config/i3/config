@@ -2,12 +2,13 @@
 set $mod Mod4
 
 # font for window titles.
-font pango:JetBrains Mono Nerd Font 10
+font pango:JetBrains Mono Nerd Font 8
 
-# brazilian keyboard, if needed
-exec --no-startup-id setxkbmap -model abnt2 -layout br
+# common keyboard layouts for me
+# exec --no-startup-id setxkbmap -model abnt2 -layout br
+# exec --no-startup-id setxkbmap -layout us
 
-# start XDG autostart .desktop files using dex. See also
+# start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
 
 # taskbar
@@ -19,10 +20,10 @@ exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpapers/ascii_sam_peit
 # xorg compositor
 exec_always --no-startup-id picom
 
-# start rofi (program launcher)
+# program launcher
 bindsym $mod+space exec --no-startup-id rofi -show drun
 
-# Screenshot
+# screenshot
 bindsym Print exec flameshot gui
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
@@ -36,6 +37,7 @@ bindsym $mod+Mod1+Right exec playerctl --player=spotify next
 bindsym $mod+Mod1+Down exec playerctl --player=spotify volume 0.1-
 bindsym $mod+Mod1+Up exec playerctl --player=spotify volume 0.1+
 bindsym $mod+Mod1+space exec playerctl --player=spotify play-pause
+
 # media player with vim motions :O
 bindsym $mod+Mod1+h exec playerctl --player=spotify previous
 bindsym $mod+Mod1+l exec playerctl --player=spotify next
@@ -55,8 +57,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # uses mod as the float modifier
 floating_modifier $mod
 
-# move floating window by left-clicking anywhere into the
-# window while holding the floating modifier.
+# move floating window by left-clicking anywhere into
+# the window while holding the floating modifier.
 tiling_drag modifier titlebar
 default_border pixel 1
 default_floating_border pixel 1
