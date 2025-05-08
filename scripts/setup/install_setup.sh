@@ -40,6 +40,7 @@ yay_packages=(
   ttf-jetbrains-mono-nerd
   xcursor-simp1e-tokyo-night
   tokyonight-gtk-theme-git
+  i3lock-color
 )
 
 extras=(
