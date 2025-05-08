@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export EDITOR=/usr/bin/nvim
+export TERMINAL=/usr/bin/kitty
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+# Check for extra monitor
+if [[ $(xrandr -q | grep "HDMI-0 connected") ]]; then
+  xrandr --output DP-0 --primary --mode 2560x1440 --rate 180 --output HDMI-0 --auto --left-of DP-0
+fi
+

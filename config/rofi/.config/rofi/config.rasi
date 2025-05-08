@@ -1,0 +1,85 @@
+configuration {
+    modi: "drun";
+    display-drun: " 󰲋 Apps ";
+    drun-display-format: "{name}";
+    hide-scrollbar: true;
+    show-icons: true;
+    font: "JetBrains Mono Nerd Font 16";
+}
+
+@theme "tokyonight"
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+window {
+    height: 52.5%;
+    width: 35%;
+    border: 3px;
+    border-color: @border-col;
+    background-color: @bg-col;
+    border-radius: 12px;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @bg-col;
+}
+
+prompt {
+    background-color: @fg-selected-col;
+    padding: 6px;
+    text-color: @bg-col;
+    border-radius: 8px;
+    margin: 20px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 0px 0px 10px;
+    text-color: @fg-col;
+    background-color: @bg-col;
+}
+
+listview {
+    padding: 20 20 0;
+    columns: 3;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 15 0 15;
+    background-color: @bg-col;
+    text-color: @fg-col  ;
+    orientation: vertical;
+}
+
+element-icon {
+    size: 55px;
+    horizontal-align: 0.5;
+}
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @fg-selected-col;
+    border-radius: 15px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    font: "JetBrains Mono Nerd Font 12";
+    expand: true;
+}
+
