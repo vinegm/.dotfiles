@@ -1,14 +1,22 @@
 [user]
-	email = 117782568+vinegm@users.noreply.github.com
-	name = vine
+  email = 117782568+vinegm@users.noreply.github.com
+  name = vine
+
 [core]
-	pager = delta
+  pager = delta
+  compression = 9
+  whitespace = error
+  preloadindex = true
+
+[status]
+  branch = true
+  showStash = true
 
 [delta]
-	navigate = true
-	dark = true
-	line-numbers = true
-	syntax-theme = tokyonight_night
+  navigate = true
+  dark = true
+  line-numbers = true
+  syntax-theme = tokyonight_night
 
-[merge]
-	conflictstyle = zdiff3
+[pull]
+    rebase = true

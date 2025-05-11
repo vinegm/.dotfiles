@@ -1,13 +1,14 @@
+#                              
 #        __                 __ 
 #   ____/ /_  ______  _____/ /_
 #  / __  / / / / __ \/ ___/ __/
 # / /_/ / /_/ / / / (__  ) /_  
 # \__,_/\__,_/_/ /_/____/\__/  
+#
 #                              
 
 [global]
-font = Roboto Medium 12
-icon_theme = "Papirus-Dark"
+font = "JetBrains Mono Nerd Font 16"
 enable_recursive_icon_lookup = true
 
 # Allow a small subset of html markup:

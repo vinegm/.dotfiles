@@ -1,7 +1,5 @@
-# Path to your Oh My Zsh installation.
+# Path to Oh My Zsh and customs.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Path to custom stuff
 ZSH_CUSTOM="$HOME/.zshcustom"
 
 # Theme
@@ -34,7 +32,7 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
   git clone --quiet https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
 
-# Plugins :D
+# Plugins
 plugins=(
   git
   git-extras
@@ -68,4 +66,5 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias lgit='lazygit'
+alias gl='git log --graph --all --pretty=format:"%C(blue)%h %C(green) %an  %ar%C(red)  %D%n%s%n"'
 alias msudo='sudo HOME=$HOME' # msudo as in My sudo (to keep config files when running stuff)
