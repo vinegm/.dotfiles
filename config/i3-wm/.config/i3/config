@@ -18,6 +18,10 @@ font pango:JetBrains Mono Nerd Font 8
 # gaps >.>
 gaps inner 10
 
+# Only shows gaps if there
+# is more than one window
+smart_gaps on
+
 # Define names for default workspaces
 set $ws1 "1"
 set $ws2 "2"
