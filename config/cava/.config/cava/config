@@ -1,0 +1,15 @@
+[general]
+bar_width = 4
+bar_spacing = 1
+
+[input]
+method = pulse
+source = auto
+
+[color]
+gradient = 1
+gradient_color_1 = '#7AA2F7'
+gradient_color_2 = '#7DCFFF'
+gradient_color_3 = '#E0AF68'
+gradient_color_4 = '#F7768E'
+
