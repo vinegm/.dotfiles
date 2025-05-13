@@ -179,11 +179,11 @@ bindsym $mod+r mode "resize"
 
 # Theme
 # Class                 border  backgr. text    indicator child_border
-client.focused          #EE6D85 #EE6D85 #ffffff #EE6D85   #EE6D85
-client.focused_inactive #A485DD #A485DD #ffffff #A485DD   #A485DD
-client.unfocused        #7199EE #7199EE #888888 #7199EE   #7199EE
-client.urgent           #EE6D85 #EE6D85 #ffffff #EE6D85   #EE6D85
-client.placeholder      #87C38A #87C38A #ffffff #87C38A   #87C38A
+client.focused          #F7768E #F7768E #FFFFFF #F7768E   #F7768E
+client.focused_inactive #E0AF68 #E0AF68 #FFFFFF #E0AF68   #E0AF68
+client.unfocused        #7AA2F7 #7AA2F7 #FFFFFF #7AA2F7   #7AA2F7
+client.urgent           #9ECE6A #9ECE6A #FFFFFF #9ECE6A   #9ECE6A
+client.placeholder      #BB9AF7 #BB9AF7 #FFFFFF #BB9AF7   #BB9AF7
 
-client.background       #11121d
+client.background       #1A1B26
 
