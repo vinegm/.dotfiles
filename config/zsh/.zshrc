@@ -22,6 +22,11 @@ ENABLE_CORRECTION="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Bootstrap zsh vi mode
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-vi-mode" ]; then
+  git clone --quiet https://github.com/jeffreytse/zsh-vi-mode "$ZSH_CUSTOM/plugins/zsh-vi-mode"
+fi
+
 # Bootstrap zsh auto suggestions
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
   git clone --quiet https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
@@ -45,7 +50,14 @@ plugins=(
   command-not-found
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-vi-mode
 )
+
+# Bind jj to escape in insert mode for zsh-vi-mode
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+}
 
 source $ZSH/oh-my-zsh.sh
 
