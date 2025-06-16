@@ -10,13 +10,13 @@ if [ -z "$@" ]; then
 else
   case "$1" in
     Shutdown)
-      sudo shutdown now
+      shutdown now
     ;;
     Logout)
       i3-msg exit
     ;;
     Reboot)
-      sudo reboot
+      reboot
     ;;
     Suspend)
       systemctl suspend
@@ -25,7 +25,7 @@ else
       i3lock --nofork
     ;;
     Hibernate)
-      sudo systemctl hibernate
+      systemctl hibernate
     ;;
     *)
       echo "Usage: $0 {Shutdown|Logout|Reboot|Suspend|Lock|Hibernate}"
