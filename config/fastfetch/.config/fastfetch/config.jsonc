@@ -13,7 +13,7 @@
   "modules": [
     {
       "type": "title",
-      "key": "  ",
+      "key": "  ",
       "format": "{6}@{8}"
     },
     {
@@ -27,7 +27,7 @@
     },
     {
       "type": "kernel",
-      "key": "   Kernel",
+      "key": "  󱙤 Kernel",
       "format": "{2}",
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "type": "wm",
-      "key": "  󱗃 WM",
+      "key": "   WM",
       "format": "{1}",
     },
     {
@@ -46,7 +46,7 @@
     },
     {
       "type": "shell",
-      "key": "  X shell",
+      "key": "  $ shell",
       "format": "{1}",
     },
     {
@@ -66,7 +66,7 @@
     {
       "type": "memory",
       "format": "{2}",
-      "key": "   Memory ",
+      "key": "   Memory ",
     },
     {
       "type": "custom",
