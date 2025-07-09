@@ -14,7 +14,7 @@ while getopts "y" opt; do
 done
 
 pacman_packages=(
-  sddm
+  ly
   i3-wm
   picom
   polybar
@@ -36,9 +36,7 @@ pacman_packages=(
 )
 
 yay_packages=(
-  # sddm-theme-tokyo-night-git
   ttf-jetbrains-mono-nerd
-  xcursor-simp1e-tokyo-night
   tokyonight-gtk-theme-git
   i3lock-color
 )
@@ -52,11 +50,16 @@ extras=(
 )
 
 echo "Installing required pacman packages..."
-sudo pacman -S --needed ${pacman_packages[*]}
+sudo pacman -Sy --noconfirm --needed ${pacman_packages[*]}
 
 if ! [ -d "$HOME/.oh-my-zsh/" ]; then
+  # Change the default shell to zsh if it is not already set
+  if [ "$SHELL" != "$(which zsh)" ]; then
+    chsh -s "$(which zsh)"
+  fi
+
   echo "Installing oh my zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
   # The zshrc.pre- should already have been stowed
   rm -f "$HOME/.zshrc"
@@ -71,7 +74,7 @@ if [ ! $(command -v yay) ]; then
 fi
 
 echo "Installing required yay packages..."
-yay -S --needed ${yay_packages[*]}
+yay -Sy --noconfirm --needed ${yay_packages[*]}
 
 if ! $skip_prompt; then
   read -p "Do you want the extra packages? eg. discord, spotify... (y/n): " answer
@@ -80,5 +83,5 @@ if ! $skip_prompt; then
   fi
 fi
 
-yay -S --needed ${extras[*]}
+yay -Sy --needed ${extras[*]}
 
