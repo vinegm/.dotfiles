@@ -1,4 +1,14 @@
-return { -- Autoformat
+local function prettier_config()
+  local config_path = vim.fn.getcwd() .. '/.prettierrc'
+  if vim.fn.filereadable(config_path) == 1 then
+    return { '--config', config_path }
+  else
+    return {}
+  end
+end
+
+return {
+  -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
@@ -15,8 +25,6 @@ return { -- Autoformat
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages
-      -- that don't have a well standardized coding style.
       local disable_filetypes = { c = true, cpp = true }
       return {
         timeout_ms = 500,
@@ -28,13 +36,14 @@ return { -- Autoformat
       javascript = { 'prettierd', 'prettier' },
       typescript = { 'prettierd', 'prettier' },
       javascriptreact = { 'prettierd', 'prettier' },
+      python = { 'black' },
     },
     formatters = {
       prettier = {
-        prepend_args = { '--config', vim.fn.getcwd() .. '/.prettierrc' },
+        prepend_args = prettier_config,
       },
       prettierd = {
-        prepend_args = { '--config', vim.fn.getcwd() .. '/.prettierrc' },
+        prepend_args = prettier_config,
       },
     },
   },
