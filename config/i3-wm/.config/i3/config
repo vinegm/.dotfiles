@@ -109,8 +109,14 @@ bindsym $mod+Mod1+space exec playerctl --player=spotify play-pause
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -Fi ~/.config/i3/wallpapers/deathScreen.jpg --indicator --nofork
 bindsym $mod+ctrl+l exec --no-startup-id i3lock -Fi ~/.config/i3/wallpapers/deathScreen.jpg
+
+# inactivity lock and suspend
+exec --no-startup-id xidlehook \
+  --not-when-fullscreen \
+  --not-when-audio \
+  --timer 600 "systemctl suspend" ""
 
 # -- Container/Window Related -- [
 # kill focused window

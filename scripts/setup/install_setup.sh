@@ -39,6 +39,7 @@ yay_packages=(
   ttf-jetbrains-mono-nerd
   tokyonight-gtk-theme-git
   i3lock-color
+  xautolock
 )
 
 extras=(
