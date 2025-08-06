@@ -22,6 +22,8 @@ pacman_packages=(
   kitty
   tmux
   zsh
+  zoxide
+  fzf
   btop
   neovim
   git
