@@ -54,6 +54,7 @@ extras=(
 
 echo "Installing required pacman packages..."
 sudo pacman -Sy --noconfirm --needed ${pacman_packages[*]}
+bat cache --build # Build the bat cache for the theme
 
 if ! [ -d "$HOME/.oh-my-zsh/" ]; then
   # Change the default shell to zsh if it is not already set
