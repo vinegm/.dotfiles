@@ -7,8 +7,7 @@ local function prettier_config()
   end
 end
 
-return {
-  -- Autoformat
+return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
@@ -32,10 +31,11 @@ return {
       }
     end,
     formatters_by_ft = {
-      lua = { 'stylua' },
+      bash = { 'shfmt' },
       javascript = { 'prettierd', 'prettier' },
-      typescript = { 'prettierd', 'prettier' },
       javascriptreact = { 'prettierd', 'prettier' },
+      lua = { 'stylua' },
+      typescript = { 'prettierd', 'prettier' },
       python = { 'black' },
     },
     formatters = {
