@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$@" ]; then
+if [ -z "$*" ]; then
   echo -en "Suspend\0icon\x1fsystem-suspend\n"
   echo -en "Lock\0icon\x1fsystem-lock-screen\n"
   echo -en "Logout\0icon\x1fsystem-log-out\n"
@@ -9,27 +9,26 @@ if [ -z "$@" ]; then
   echo -en "Shutdown\0icon\x1fsystem-shutdown\n"
 else
   case "$1" in
-    Shutdown)
-      shutdown now
+  Shutdown)
+    shutdown now
     ;;
-    Logout)
-      i3-msg exit
+  Logout)
+    i3-msg exit
     ;;
-    Reboot)
-      reboot
+  Reboot)
+    reboot
     ;;
-    Suspend)
-      systemctl suspend
+  Suspend)
+    systemctl suspend
     ;;
-    Lock)
-      i3lock --nofork
+  Lock)
+    i3lock --nofork
     ;;
-    Hibernate)
-      systemctl hibernate
+  Hibernate)
+    systemctl hibernate
     ;;
-    *)
-      echo "Usage: $0 {Shutdown|Logout|Reboot|Suspend|Lock|Hibernate}"
+  *)
+    echo "Usage: $0 {Shutdown|Logout|Reboot|Suspend|Lock|Hibernate}"
     ;;
   esac
 fi
-

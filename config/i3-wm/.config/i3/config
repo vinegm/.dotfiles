@@ -1,28 +1,25 @@
-# setting the mod key
+# -- configs -- {
+font pango:JetBrains Mono Nerd Font 8
+
+# keyboard layouts
+# exec --no-startup-id setxkbmap -model abnt2 -layout br
+# exec --no-startup-id setxkbmap -layout us
+# -- configs -- }
+
+# -- variables -- {
 set $mod Mod4
 floating_modifier $mod
 
-# move floating window by left-clicking anywhere into
-# the window while holding the floating modifier.
-tiling_drag modifier titlebar
-default_border pixel 1
-default_floating_border pixel 1
+# programs
+set $browser "brave"
+set $fileManager "thunar"
+set $laucher "~/.config/rofi/scripts/lauch.sh drun"
+set $musicPlayer "spotify"
+set $powerMenu "~/.config/rofi/scripts/lauch.sh power"
+set $printScreen "flameshot gui"
+set $terminal "kitty"
 
-# common keyboard layouts for me
-# exec --no-startup-id setxkbmap -model abnt2 -layout br
-# exec --no-startup-id setxkbmap -layout us
-
-# font for window titles.
-font pango:JetBrains Mono Nerd Font 8
-
-# gaps >.>
-gaps inner 10
-
-# Only shows gaps if there
-# is more than one window
-smart_gaps on
-
-# Define names for default workspaces
+# workspaces
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -33,6 +30,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+# -- variables -- }
 
 # -- Startup -- {
 # start XDG autostart .desktop files using dex.
@@ -45,103 +43,112 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 # wallpaper setter
-exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpapers/ascii_sam_peitz.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/ascii_sam_peitz.png
 
 # xorg compositor
 exec_always --no-startup-id picom --config ~/.config/picom/picom.config
-# -- Startup -- }
 
-# -- Keybinds -- {
-# -- Session Management -- [
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session)
-bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?.' -B 'Yes' 'i3-msg exit'"
-# -- Session Management -- ]
-
-# -- Apps -- [
-# program launcher
-bindsym $mod+space exec ~/.config/rofi/scripts/lauch.sh drun
-bindsym $mod+ctrl+p exec ~/.config/rofi/scripts/lauch.sh power
-
-# terminal
-bindsym $mod+Return exec kitty
-
-# screenshot
-bindsym Print exec flameshot gui
-
-# common apps
-bindsym $mod+b exec brave
-bindsym $mod+d exec discord
-bindsym $mod+e exec thunar
-bindsym $mod+s exec spotify
-bindsym $mod+n exec obsidian
-# -- Apps -- ]
-
-# -- PulseAudio Binds -- [
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# cycle audio sink
-bindsym $mod+Mod1+s exec ~/.config/i3/scripts/cycle_sink.sh
-# -- PulseAudio Binds -- ]
-
-# -- Spotify Binds -- [
-bindsym $mod+Mod1+Left exec playerctl --player=spotify previous
-bindsym $mod+Mod1+Right exec playerctl --player=spotify next
-bindsym $mod+Mod1+Down exec playerctl --player=spotify volume 0.1-
-bindsym $mod+Mod1+Up exec playerctl --player=spotify volume 0.1+
-
-bindsym $mod+Mod1+h exec playerctl --player=spotify previous
-bindsym $mod+Mod1+l exec playerctl --player=spotify next
-bindsym $mod+Mod1+j exec playerctl --player=spotify volume 0.1-
-bindsym $mod+Mod1+k exec playerctl --player=spotify volume 0.1+
-
-bindsym $mod+Mod1+space exec playerctl --player=spotify play-pause
-# -- Spotify Binds -- ]
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -Fi ~/.config/i3/wallpapers/deathScreen.jpg --indicator --nofork
-bindsym $mod+ctrl+l exec --no-startup-id i3lock -Fi ~/.config/i3/wallpapers/deathScreen.jpg
+# lock screen on suspend
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -Fi ~/Pictures/wallpapers/deathScreen.jpg --indicator --nofork
 
 # inactivity lock and suspend
 exec --no-startup-id xidlehook \
   --not-when-fullscreen \
   --not-when-audio \
   --timer 600 "systemctl suspend" ""
+# -- Startup -- }
 
-# -- Container/Window Related -- [
+# -- Theme -- {
+# borders
+default_border pixel 1
+default_floating_border pixel 1
+
+# Only shows gaps if there is more than one window
+gaps inner 10
+smart_gaps on
+
+# Class                 border  backgr. text    indicator child_border
+client.focused          #F7768E #F7768E #FFFFFF #F7768E   #F7768E
+client.focused_inactive #E0AF68 #E0AF68 #FFFFFF #E0AF68   #E0AF68
+client.unfocused        #7AA2F7 #7AA2F7 #FFFFFF #7AA2F7   #7AA2F7
+client.urgent           #9ECE6A #9ECE6A #FFFFFF #9ECE6A   #9ECE6A
+client.placeholder      #BB9AF7 #BB9AF7 #FFFFFF #BB9AF7   #BB9AF7
+
+client.background       #1A1B26
+# -- Theme -- }
+
+# -- Keybinds -- {
+bindsym $mod+b exec $browser
+bindsym $mod+e exec $fileManager
+bindsym $mod+space exec $laucher
+bindsym $mod+s exec $musicPlayer
+bindsym $mod+ctrl+p exec $powerMenu
+bindsym Print exec $printScreen
+bindsym $mod+Return exec $terminal
+
+# common apps
+bindsym $mod+d exec discord
+bindsym $mod+n exec obsidian
+
 # kill focused window
 bindsym $mod+q kill
 
-# set to split in horizontal orientation
-bindsym $mod+ctrl+h split h
-
-# set to split in vertical orientation
-bindsym $mod+ctrl+v split v
-
-# enter fullscreen mode for the focused container
+# fullscreen focused window
 bindsym $mod+f fullscreen toggle
 
-# change container layout (tabbed, toggle split)
+# set to split in horizontal/vertical orientation
+bindsym $mod+ctrl+h split h
+bindsym $mod+ctrl+v split v
+
+# change container layout
 bindsym $mod+ctrl+w layout tabbed
 bindsym $mod+ctrl+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+# dragging
+tiling_drag modifier titlebar
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# lock screen
+bindsym $mod+ctrl+l exec --no-startup-id i3lock -Fi ~/Pictures/wallpapers/deathScreen.jpg
+
+# multimedia keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -e4 -n2 set 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -e4 -n2 set 5%-
+
+# cycle audio output
+bindsym $mod+Mod1+s exec ~/.dotfiles/scripts/cycle_sink.sh
+
+# media player controls with arrow keys
+bindsym $mod+Mod1+Left exec playerctl --player=spotify previous
+bindsym $mod+Mod1+Right exec playerctl --player=spotify next
+bindsym $mod+Mod1+Down exec playerctl --player=spotify volume 0.1-
+bindsym $mod+Mod1+Up exec playerctl --player=spotify volume 0.1+
+
+# media player controls with vim keys
+bindsym $mod+Mod1+h exec playerctl --player=spotify previous
+bindsym $mod+Mod1+l exec playerctl --player=spotify next
+bindsym $mod+Mod1+j exec playerctl --player=spotify volume 0.1-
+bindsym $mod+Mod1+k exec playerctl --player=spotify volume 0.1+
+
+# play/pause
+bindsym $mod+Mod1+space exec playerctl --player=spotify play-pause
+
 # enter resize mode
 bindsym $mod+r mode "resize"
 
-# resize window
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
@@ -195,7 +202,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace
+# move focused window to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -206,16 +213,4 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-# -- Container/Window Related -- ]
 # -- Keybinds -- }
-
-# Theme
-# Class                 border  backgr. text    indicator child_border
-client.focused          #F7768E #F7768E #FFFFFF #F7768E   #F7768E
-client.focused_inactive #E0AF68 #E0AF68 #FFFFFF #E0AF68   #E0AF68
-client.unfocused        #7AA2F7 #7AA2F7 #FFFFFF #7AA2F7   #7AA2F7
-client.urgent           #9ECE6A #9ECE6A #FFFFFF #9ECE6A   #9ECE6A
-client.placeholder      #BB9AF7 #BB9AF7 #FFFFFF #BB9AF7   #BB9AF7
-
-client.background       #1A1B26
-

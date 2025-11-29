@@ -10,4 +10,3 @@ polybar main_monitor &
 if [[ $(xrandr -q | grep "HDMI-0 connected") ]]; then
   polybar external_monitor &
 fi
-

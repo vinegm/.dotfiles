@@ -13,4 +13,3 @@ elif [ "$opt" = "drun" ]; then
 elif [ -z "$opt" ]; then
   notify-send "Rofi lauch option unrecognized!"
 fi
-

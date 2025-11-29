@@ -11,11 +11,10 @@ for i in "${!sinks[@]}"; do
     fi
 done
 
-next_index=$(( (index + 1) % ${#sinks[@]} ))
+next_index=$(((index + 1) % ${#sinks[@]}))
 
 pactl set-default-sink "${sinks[$next_index]}"
 
 for input in $(pactl list short sink-inputs | cut -f1); do
     pactl move-sink-input "$input" "${sinks[$next_index]}"
 done
-
