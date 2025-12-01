@@ -93,7 +93,6 @@ timeout = 120
 
 [notify_send]
 appname = notify-send
-new_icon = bell
 
 [wireless]
 appname = wireless

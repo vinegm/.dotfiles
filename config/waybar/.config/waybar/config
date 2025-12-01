@@ -1,0 +1,74 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["tray"],
+  "modules-right": [
+    "memory",
+    "cpu",
+    "battery",
+    "pulseaudio",
+    "clock"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "all-outputs": true,
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 25,
+
+    "rewrite": {
+      "": "Chilling"
+    }
+  },
+
+  "tray": {
+    "spacing": 8,
+    "icon-size": 16
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": " {percentage:2}%"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": " {usage:2}%"
+  },
+
+  "battery": {
+    "bat": "BAT1",
+    "full-at": 95,
+    "format": "{icon} {percentage}%",
+
+    "format-charging": "󰂄 {percentage}%",
+    "format-discharging": "󰂌 {percentage}%",
+    "format-full": "󱟢 {percentage}%",
+
+    "states": {
+      "low": 15
+    }
+  },
+
+  "pulseaudio": {
+    "format": "󰕾 {volume}%",
+    "format-muted": "󰸈 muted",
+
+    "scroll-step": 5,
+
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+
+  "clock": {
+    "interval": 5,
+    "format": "󰥔 {:%a, %b %dth, %I:%M %p}"
+  }
+}
+
