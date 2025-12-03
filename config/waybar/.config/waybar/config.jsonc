@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 38,
+  "height": 40,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["tray"],
@@ -19,7 +19,7 @@
   },
 
   "hyprland/window": {
-    "format": "{}",
+    "format": "{class}",
     "max-length": 25,
 
     "rewrite": {
@@ -28,13 +28,16 @@
   },
 
   "tray": {
-    "spacing": 8,
-    "icon-size": 16
+    "spacing": 5,
+    "icon-size": 18
   },
 
   "memory": {
     "interval": 5,
-    "format": " {percentage:2}%"
+    "format": " {percentage:2}%",
+
+    "tooltip": true,
+    "tooltip-format": "Memory: {used}/{total} GiB"
   },
 
   "cpu": {
@@ -45,8 +48,8 @@
   "battery": {
     "bat": "BAT1",
     "full-at": 95,
-    "format": "{icon} {capacity}%",
 
+    "format": "{icon} {capacity}%",
     "format-full": "󱟢 {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-discharging": "󰂌 {capacity}%",
@@ -54,7 +57,10 @@
     "states": {
       "warning": 30,
       "critical": 15
-    }
+    },
+
+    "tooltip": true,
+    "tooltip-format": "{timeTo}"
   },
 
   "pulseaudio": {
@@ -69,7 +75,29 @@
 
   "clock": {
     "interval": 5,
-    "format": "󰥔 {:%a, %b %dth, %I:%M %p}"
+    "format": "󰥔 {:%a, %b %dth, %I:%M %p}",
+
+    "tooltip": true,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 4,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#9ECE6A'><b>{}</b></span>",
+        "weekdays": "<span color='#C0CAF5'><b>{}</b></span>",
+        "days": "<span color='#7AA2F7'><b>{}</b></span>",
+        "today": "<span color='#F7768E'><b><u>{}</u></b></span>"
+      }
+    },
+
+    "actions":  {
+      "on-click": "shift_reset",
+      "on-click-right": "mode",
+
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
   }
 }
 
