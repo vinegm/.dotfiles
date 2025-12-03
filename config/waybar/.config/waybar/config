@@ -45,14 +45,15 @@
   "battery": {
     "bat": "BAT1",
     "full-at": 95,
-    "format": "{icon} {percentage}%",
+    "format": "{icon} {capacity}%",
 
-    "format-charging": "󰂄 {percentage}%",
-    "format-discharging": "󰂌 {percentage}%",
-    "format-full": "󱟢 {percentage}%",
+    "format-full": "󱟢 {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-discharging": "󰂌 {capacity}%",
 
     "states": {
-      "low": 15
+      "warning": 30,
+      "critical": 15
     }
   },
 

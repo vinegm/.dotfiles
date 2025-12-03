@@ -64,7 +64,7 @@ if [ -d "$DOTFILES" ]; then
   echo "A \"~/.dotfiles\" directory already exists, the setup needs to use this directory."
   echo "Do you want to continue without cloning the repository? (Will use existing directory)"
 
-  read -r -p "[Y]es / [n]o / [o]verwrite directory" answer
+  read -r -p "[Y]es / [n]o / [o]verwrite directory : " answer
   answer="${answer,,}"
 
   case "$answer" in
