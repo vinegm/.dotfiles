@@ -29,8 +29,8 @@ word_wrap = yes
 stack_duplicates = true
 
 origin = top-right
-offset = 25x50
-width = (0,500)
+offset = (25, 50)
+width = (0, 500)
 
 # don't remove messages, if the user is idle
 idle_threshold = 60
@@ -62,9 +62,6 @@ horizontal_padding = 15
 
 # define a color for the separator
 separator_color = auto
-
-# print a notification on startup
-startup_notification = true
 
 # align icons
 icon_position = left
