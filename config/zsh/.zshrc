@@ -49,6 +49,11 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Fixes some coloring issues (excludes TTY)
+if [[ "$TERM" != "linux" ]]; then
+  export TERM=xterm-256color
+fi
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
