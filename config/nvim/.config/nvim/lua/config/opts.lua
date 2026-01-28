@@ -7,10 +7,10 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Line numbers etc in Netrw
-vim.cmd [[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']]
+vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
 
 -- Enable mouse mode (blasphemous, I know)
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Don't show the mode (already in the status line)
 vim.opt.showmode = false
@@ -43,7 +43,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -54,14 +54,14 @@ vim.opt.timeoutlen = 300
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.list = true
-vim.opt.listchars = { tab = '  ', trail = ' ', nbsp = ' ' }
+vim.opt.listchars = { tab = "  ", trail = " ", nbsp = " " }
 
 -- Set tab behavior
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true

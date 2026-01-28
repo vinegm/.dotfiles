@@ -1,3 +1,3 @@
 return { -- AI Auto complete
-  'github/copilot.vim',
+  "github/copilot.vim",
 }
