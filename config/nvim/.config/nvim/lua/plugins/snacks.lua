@@ -3,12 +3,26 @@ return { -- A lot of QOL
   priority = 1000,
   lazy = false,
   opts = {
-    indent = { enabled = true },
+    indent = {
+      enabled = true,
+      animate = {
+        enabled = false,
+      },
+    },
 
     image = {},
 
     explorer = {},
     picker = {
+      win = {
+        input = {
+          keys = {
+            ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+            ["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+          },
+        },
+      },
+
       sources = {
         files = {
           hidden = true,
@@ -49,6 +63,7 @@ return { -- A lot of QOL
   },
 
   keys = {
+    { "<leader><leader>", function() Snacks.picker.recent() end, desc = "Search recent files" },
     { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "[S]earch [D]iagnostics" },
     { "<leader>sf", function() Snacks.picker.files() end, desc = "[S]earch [F]iles" },
     { "<leader>sg", function() Snacks.picker.grep() end, desc = "[S]earch by [G]rep" },
