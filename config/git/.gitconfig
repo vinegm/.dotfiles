@@ -4,21 +4,33 @@
 
 [core]
   pager = delta
+  editor = nvim
   compression = 9
   whitespace = error
   preloadindex = true
+
+[init]
+  defaultBranch = main
 
 [status]
   branch = true
   showStash = true
 
 [delta]
-  navigate = true
   dark = true
-  line-numbers = true
+  navigate = true
+  side-by-side = true
   syntax-theme = tokyonight_night
 
+[push]
+  default = simple
+  autoSetupRemote = true
+
 [pull]
-    rebase = true
-[init]
-	defaultBranch = main
+  rebase = true
+
+[rebase]
+  autoStash = true
+
+[rerere]
+  enabled = true

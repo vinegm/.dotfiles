@@ -2,7 +2,11 @@ git:
   pagers:
     - colorArg: always
       pager: delta --dark --paging=never
+
 gui:
+  ignoreWhitespaceInDiffView: true
+  sidePanelWidth: 0.25
+
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
