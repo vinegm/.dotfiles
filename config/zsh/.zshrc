@@ -69,6 +69,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Aliases
 alias cd='z'
+alias ':q'='exit'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
