@@ -49,7 +49,7 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/ascii_sam_peitz.
 exec_always --no-startup-id picom --config ~/.config/picom/picom.config
 
 # lock screen on suspend
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -Fi ~/Pictures/wallpapers/deathScreen.jpg --indicator --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -Fi ~/Pictures/wallpapers/deathScreen.png --indicator --nofork
 
 # inactivity lock and suspend
 exec --no-startup-id xidlehook \
@@ -117,7 +117,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # lock screen
-bindsym $mod+ctrl+l exec --no-startup-id i3lock -Fi ~/Pictures/wallpapers/deathScreen.jpg
+bindsym $mod+ctrl+l exec --no-startup-id i3lock -Fi ~/Pictures/wallpapers/deathScreen.png
 
 # multimedia keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
