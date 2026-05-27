@@ -143,6 +143,10 @@ bindsym $mod+Mod1+l exec playerctl --player=spotify next
 bindsym $mod+Mod1+j exec playerctl --player=spotify volume 0.1-
 bindsym $mod+Mod1+k exec playerctl --player=spotify volume 0.1+
 
+# seek forward/backward (awkward keybinds, may change in the future)
+bindsym $mod+Mod1+u exec playerctl --player=spotify position 5+
+bindsym $mod+Mod1+d exec playerctl --player=spotify position 5-
+
 # play/pause
 bindsym $mod+Mod1+space exec playerctl --player=spotify play-pause
 
