@@ -64,7 +64,18 @@ fi
 eval "$(zoxide init zsh)"
 
 source <(fzf --zsh)
-export FZF_DEFAULT_OPTS="-m --preview 'bat --style=numbers --color=always {}'"
+export FZF_DEFAULT_OPTS="
+  -m
+  --layout=reverse
+  --border
+  --preview '
+    if [[ -d {} ]]; then
+      ls -oAh --color=always {}
+    else
+      bat --style=numbers --color=always {}
+    fi
+  '
+"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Aliases
