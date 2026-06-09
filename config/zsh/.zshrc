@@ -74,12 +74,28 @@ export FZF_DEFAULT_OPTS="
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Aliases
-alias cd='z'
+if (( $+commands[eza] )); then
+  alias ls='eza'
+fi
+
+if (( $+commands[zoxide] )); then
+  alias cd='z'
+fi
+
+if (( $+commands[bat] )); then
+  alias cat='bat'
+elif (( $+commands[batcat] )); then
+  alias cat='batcat'
+fi
+
+if (( $+commands[nvim] )); then
+  alias vim='nvim'
+  alias vi='nvim'
+  alias v='nvim'
+fi
+
 alias ':q'='exit'
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
+alias tms='~/.local/bin/tmux-sessionizer.sh'
 alias lgit='lazygit'
 alias gl='git log --graph --all --pretty=format:"%C(blue)%h %C(green) %an  %ar%C(red)  %D%n%s%n"'
-alias tms='~/.local/bin/tmux-sessionizer.sh'
 alias msudo='sudo HOME=$HOME' # msudo as in My sudo (to keep config files when running stuff)
