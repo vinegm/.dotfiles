@@ -21,12 +21,9 @@ else
         printf '%s\n' "$repo_dirs"
         printf '%s\n' "${existing_sessions[@]}"
     } | fzf --preview '
-        if [[ -d {} ]]; then
-            ls --color=always {}
-        else
-            tmux list-windows -t {} 2> /dev/null
-        fi
-        ')
+        ~/.local/bin/fzf-previewer.sh {} ||
+        tmux list-windows -t {} 2> /dev/null
+    ')
 fi
 
 if [[ -z $selected ]]; then
