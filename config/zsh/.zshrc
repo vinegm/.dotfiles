@@ -68,13 +68,8 @@ export FZF_DEFAULT_OPTS="
   -m
   --layout=reverse
   --border
-  --preview '
-    if [[ -d {} ]]; then
-      ls -oAh --color=always {}
-    else
-      bat --style=numbers --color=always {}
-    fi
-  '
+  --bind 'ctrl-/:toggle-preview'
+  --preview '~/.local/bin/fzf-previewer.sh {}'
 "
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
