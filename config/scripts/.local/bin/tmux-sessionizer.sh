@@ -20,7 +20,13 @@ else
     selected=$({
         printf '%s\n' "$repo_dirs"
         printf '%s\n' "${existing_sessions[@]}"
-    } | fzf)
+    } | fzf --preview '
+        if [[ -d {} ]]; then
+            ls --color=always {}
+        else
+            tmux list-windows -t {} 2> /dev/null
+        fi
+        ')
 fi
 
 if [[ -z $selected ]]; then
