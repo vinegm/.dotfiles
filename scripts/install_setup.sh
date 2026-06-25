@@ -54,7 +54,7 @@ yay_packages=(
 
 wayland_packages=(
   grim      # screenshot utility
-  hpyridle  # auto screen lock
+  hypridle  # auto screen lock
   hyprland  # compositor/window manager
   hyprlock  # screen locker
   hyprpaper # wallpaper setter
@@ -74,6 +74,9 @@ x11_yay_packages=(
   i3lock-color # screen locker with color support
   xautolock    # auto screen lock
 )
+
+echo "Updating pacman package database..."
+sudo pacman -Sy --noconfirm
 
 echo "Installing required pacman packages..."
 sudo pacman -Sy --noconfirm --needed "${general_packages[@]}"
@@ -103,13 +106,16 @@ if $install_yay_pkgs; then
     makepkg -si
   fi
 
+  echo "Updating yay package database..."
+  yay -Sy --noconfirm
+
   echo "Installing required yay packages..."
   yay -Sy --noconfirm --needed "${yay_packages[*]}"
 fi
 
 if $install_wayland; then
   echo "Installing Wayland packages..."
-  yay -Sy --noconfirm --needed "${wayland_packages[@]}"
+  sudo pacman -Sy --noconfirm --needed "${wayland_packages[@]}"
 fi
 
 if $install_x11; then
