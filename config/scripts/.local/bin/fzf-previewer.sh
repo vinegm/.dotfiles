@@ -2,7 +2,7 @@
 
 previewDirectory() {
     if command -v eza >/dev/null 2>&1; then
-        eza -lah --color=always -- "$1"
+        eza -lah -T -L=1 --color=always -- "$1"
         return
     fi
 

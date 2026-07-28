@@ -69,6 +69,7 @@ export FZF_DEFAULT_OPTS="
   --layout=reverse
   --border
   --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up'
   --preview '~/.local/bin/fzf-previewer.sh {}'
 "
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
