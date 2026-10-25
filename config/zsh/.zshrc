@@ -49,6 +49,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Vim mode
+bindkey -v
+
+# jj to escape insert mode
+bindkey -M viins 'jj' vi-cmd-mode
+
 # Fixes some coloring issues (excludes TTY)
 if [[ "$TERM" != "linux" ]]; then
   export TERM=xterm-256color
