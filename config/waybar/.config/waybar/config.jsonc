@@ -3,7 +3,11 @@
   "position": "top",
   "height": 40,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window",
+    "mpris"
+  ],
   "modules-center": ["tray"],
   "modules-right": [
     "memory",
@@ -16,6 +20,7 @@
   "hyprland/workspaces": {
     "format": "{id}",
     "all-outputs": true,
+    "tooltip": false,
   },
 
   "hyprland/window": {
@@ -25,6 +30,15 @@
     "rewrite": {
       "": "Chilling"
     }
+  },
+
+  "mpris": {
+    "format": "{artist} - {title}",
+    "format-paused": "󰏤 {artist} - {title}",
+    "format-stopped": "󰓛 {player}",
+    "max-length": 50,
+    "interval": 0.2,
+    "on-click": "playerctl play-pause",
   },
 
   "tray": {

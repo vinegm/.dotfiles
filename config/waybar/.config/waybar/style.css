@@ -27,6 +27,7 @@ window#waybar {
 	color: #9ECE6A;
 }
 
+#mpris,
 #window,
 #memory,
 #cpu,
