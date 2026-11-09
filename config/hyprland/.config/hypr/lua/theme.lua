@@ -64,6 +64,13 @@ for _, a in ipairs(animations) do
 	})
 end
 
+-- Ignore maximize requests from apps
+hl.window_rule({
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
+	suppress_event = "maximize",
+})
+
 -- Only shows gaps if there is more than one window
 -- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
 -- hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
