@@ -1,3 +1,13 @@
 lazy-lock.json
 config/zsh/.zshcustom/plugins/
 config/cava/.config/cava/shaders
+
+# ~/.local/bin is shared with installers,
+# only track our own scripts
+config/scripts/.local/bin/*
+!config/scripts/.local/bin/*.sh
+
+# ~/Pictures gets screenshots/downloads,
+# only track wallpapers
+config/wallpapers/Pictures/*
+!config/wallpapers/Pictures/wallpapers/

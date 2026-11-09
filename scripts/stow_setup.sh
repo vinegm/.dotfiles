@@ -16,12 +16,24 @@ dirs=$(ls -d "$DOTFILES"/config/*/)
 # default action
 ACTION=${1:-stow}
 
+# Packages allowed to be linked
+# as a whole directory.
+FOLD_PACKAGES=(
+    nvim
+)
+
 stow_action() {
     local action=$1
     local dir=$2
+    local fold_opt="--no-folding"
+
+    local pkg
+    for pkg in "${FOLD_PACKAGES[@]}"; do
+        [[ "$pkg" == "$dir" ]] && fold_opt=""
+    done
 
     case "$action" in
-    stow) stow -d "$DOTFILES"/config/ -t "$HOME" -R "$dir" ;;
+    stow) stow -d "$DOTFILES"/config/ -t "$HOME" $fold_opt -R "$dir" ;;
     unstow) stow -d "$DOTFILES"/config/ -t "$HOME" -D "$dir" ;;
     *)
         echo "Action not recognized"
