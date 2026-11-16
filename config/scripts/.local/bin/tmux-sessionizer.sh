@@ -3,42 +3,60 @@
 # Credits to my boy ThePrimeagen for the original script/idea:
 # https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 
-tmux_running=$(pgrep tmux)
+# Dirs probed for git repos
+search_dirs=(
+    ~/repos
+    ~/work
+)
 
-existing_sessions=()
-if [[ -n $tmux_running ]]; then
-    while IFS= read -r s; do
-        existing_sessions+=("$s")
-    done < <(tmux list-sessions -F '#{session_name}' 2>/dev/null)
-fi
+search_depth=3
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
-else
-    repo_dirs=$(find ~/repos ~/work -mindepth 1 -maxdepth 1 -type d)
+# Unmatched globs expand to nothing,
+# so find_repos skips empty dirs
+shopt -s nullglob
 
-    selected=$({
-        printf '%s\n' "$repo_dirs"
-        printf '%s\n' "${existing_sessions[@]}"
+# Print git repos at most $1 levels below
+# the given dirs, stops at a git repo
+find_repos() {
+    local depth=$1 dir
+    shift
+
+    ((depth < 0)) && return
+
+    for dir in "$@"; do
+        dir=${dir%/}
+
+        if [[ -e $dir/.git ]]; then
+            echo "$dir"
+            continue
+        fi
+
+        find_repos $((depth - 1)) "$dir"/*/
+    done
+}
+
+# Pick a repo or a running session with fzf
+pick() {
+    {
+        tmux list-sessions -F '#{session_name}' 2>/dev/null
+        find_repos "$search_depth" "${search_dirs[@]}"
     } | fzf --preview '
-        ~/.local/bin/fzf-previewer.sh {} ||
-        tmux list-windows -t {} 2> /dev/null
-    ')
+        tmux capture-pane -ep -t "="{}":" 2> /dev/null ||
+        ~/.local/bin/fzf-previewer.sh {}
+    '
+}
+
+selected=${1:-$(pick)}
+[[ -z $selected ]] && exit 0
+
+session=$(basename "$selected" | tr . _)
+
+if ! tmux has-session -t="$session" 2>/dev/null; then
+    tmux new-session -ds "$session" -c "$selected"
 fi
 
-if [[ -z $selected ]]; then
-    exit 0
+if [[ -n $TMUX ]]; then
+    tmux switch-client -t "$session"
+else
+    tmux attach-session -t "$session"
 fi
-
-selected_name=$(basename "$selected" | tr . _)
-
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s "$selected_name" -c "$selected"
-    exit 0
-fi
-
-if ! tmux has-session -t="$selected_name" 2>/dev/null; then
-    tmux new-session -ds "$selected_name" -c "$selected"
-fi
-
-tmux switch-client -t "$selected_name"
